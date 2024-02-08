@@ -2,16 +2,26 @@
 
 ## Подготовка к выполнению
 
-1. Установите Ansible версии 2.10 или выше.
-2. Создайте свой публичный репозиторий на GitHub с произвольным именем.
-3. Скачайте [Playbook](./playbook/) из репозитория с домашним заданием и перенесите его в свой репозиторий.
-
+1. Установлен Ansible на Ununtu 20.04.
+2. Создан свой публичный репозиторий на GitHub (Roman-K-E/ansible-homeworks).
+3. Скачано содержимое прилагаемой к д.з. директории Playbook.
+   
 ## Решение основной части
 
 1. Попробуйте запустить playbook на окружении из `test.yml`, зафиксируйте значение, которое имеет факт `some_fact` для указанного хоста при выполнении playbook.
-[8-1--1.png](https://github.com/Roman-K-E/ansible-homeworks/blob/main/8.1/8-1--1.png)
+![8-1--1.png](https://github.com/Roman-K-E/ansible-homeworks/blob/main/8.1/8-1--1.png)
 
 2. Найдите файл с переменными (group_vars), в котором задаётся найденное в первом пункте значение, и поменяйте его на `all default fact`.
+Поиск файла с переменными:
+```
+root@ub1:/home/r/homeworks/8-1# grep -rnw 'group_vars/' -e 'some_fact'
+group_vars/el/examp.yml:2:  some_fact: "el"
+group_vars/all/examp.yml:2:  some_fact: 12
+group_vars/deb/examp.yml:2:  some_fact: "deb"
+```
+Новое значение переменной, после изменения в файле `group_vars/all/examp.yml`:
+
+
 3. Воспользуйтесь подготовленным (используется `docker`) или создайте собственное окружение для проведения дальнейших испытаний.
 4. Проведите запуск playbook на окружении из `prod.yml`. Зафиксируйте полученные значения `some_fact` для каждого из `managed host`.
 5. Добавьте факты в `group_vars` каждой из групп хостов так, чтобы для `some_fact` получились значения: для `deb` — `deb default fact`, для `el` — `el default fact`.
