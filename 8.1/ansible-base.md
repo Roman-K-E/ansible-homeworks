@@ -20,7 +20,7 @@ group_vars/all/examp.yml:2:  some_fact: 12
 group_vars/deb/examp.yml:2:  some_fact: "deb"
 ```
 Новое значение переменной, после изменения в файле `group_vars/all/examp.yml`:
-
+![8-1--2.png](https://github.com/Roman-K-E/ansible-homeworks/blob/main/8.1/8-1--2.png)
 
 3. Воспользуйтесь подготовленным (используется `docker`) или создайте собственное окружение для проведения дальнейших испытаний.
 4. Проведите запуск playbook на окружении из `prod.yml`. Зафиксируйте полученные значения `some_fact` для каждого из `managed host`.
