@@ -68,6 +68,7 @@ root@ub1:/home/r/homeworks/8-1# ansible-playbook -i inventory/prod.yml site.yml
 ```
 root@ub1:/home/r/homeworks/8-1/inventory# cat prod.yml
 ---
+---
   el:
     hosts:
       centos7:
@@ -76,13 +77,10 @@ root@ub1:/home/r/homeworks/8-1/inventory# cat prod.yml
     hosts:
       ubuntu:
         ansible_connection: docker
-root@ub1:/home/r/homeworks/8-1/inventory# cat test.yml
----
-  inside:
+  local:
     hosts:
       localhost:
         ansible_connection: local
-root@ub1:/home/r/homeworks/8-1/inventory#
 ```
 11. Запустите playbook на окружении `prod.yml`. При запуске `ansible` должен запросить у вас пароль. Убедитесь, что факты `some_fact` для каждого из хостов определены из верных `group_vars`.  
 
