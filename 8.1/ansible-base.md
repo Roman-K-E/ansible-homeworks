@@ -35,7 +35,20 @@ root@ub1:/home/r/homeworks/8-1# docker-compose up -d
 4. Проведите запуск playbook на окружении из `prod.yml`. Зафиксируйте полученные значения `some_fact` для каждого из `managed host`.  
 ![8-1--4.png](https://github.com/Roman-K-E/ansible-homeworks/blob/main/8.1/8-1--4.png)
 
-5. Добавьте факты в `group_vars` каждой из групп хостов так, чтобы для `some_fact` получились значения: для `deb` — `deb default fact`, для `el` — `el default fact`.
+5. Добавьте факты в `group_vars` каждой из групп хостов так, чтобы для `some_fact` получились значения: для `deb` — `deb default fact`, для `el` — `el default fact`.  
+
+Внесены соотв. изменения в переменные `some_fact` файлов examp.yml директорий deb и el:  
+```
+root@ub1:/home/r/homeworks/8-1# cat group_vars/deb/examp.yml
+---
+  some_fact: "deb default fact"
+root@ub1:/home/r/homeworks/8-1# cat group_vars/el/examp.yml
+---
+  some_fact: "el default fact"
+root@ub1:/home/r/homeworks/8-1# ansible-playbook -i inventory/prod.yml site.yml
+```
+![8-1--5.png](https://github.com/Roman-K-E/ansible-homeworks/blob/main/8.1/8-1--5.png)
+
 6.  Повторите запуск playbook на окружении `prod.yml`. Убедитесь, что выдаются корректные значения для всех хостов.
 7. При помощи `ansible-vault` зашифруйте факты в `group_vars/deb` и `group_vars/el` с паролем `netology`.
 8. Запустите playbook на окружении `prod.yml`. При запуске `ansible` должен запросить у вас пароль. Убедитесь в работоспособности.
