@@ -53,7 +53,7 @@ root@ub1:/home/r/homeworks/8-1# ansible-playbook -i inventory/prod.yml site.yml
 
 7. При помощи `ansible-vault` зашифруйте факты в `group_vars/deb` и `group_vars/el` с паролем `netology`.
 Шифрование и отображение получившегося:  
-![8-1--6.png](https://github.com/Roman-K-E/ansible-homeworks/blob/main/8.1/8-1--6.png)
+![8-1--7.png](https://github.com/Roman-K-E/ansible-homeworks/blob/main/8.1/8-1--7.png)
 
 8. Запустите playbook на окружении `prod.yml`. При запуске `ansible` должен запросить у вас пароль. Убедитесь в работоспособности.
 9. Посмотрите при помощи `ansible-doc` список плагинов для подключения. Выберите подходящий для работы на `control node`.
