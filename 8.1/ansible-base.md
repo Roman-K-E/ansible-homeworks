@@ -9,6 +9,7 @@
 ## Решение основной части
 
 1. Попробуйте запустить playbook на окружении из `test.yml`, зафиксируйте значение, которое имеет факт `some_fact` для указанного хоста при выполнении playbook.
+
 ![8-1--1.png](https://github.com/Roman-K-E/ansible-homeworks/blob/main/8.1/8-1--1.png)
 
 2. Найдите файл с переменными (group_vars), в котором задаётся найденное в первом пункте значение, и поменяйте его на `all default fact`.
@@ -19,11 +20,21 @@ group_vars/el/examp.yml:2:  some_fact: "el"
 group_vars/all/examp.yml:2:  some_fact: 12
 group_vars/deb/examp.yml:2:  some_fact: "deb"
 ```
-Новое значение переменной, после изменения в файле `group_vars/all/examp.yml`:
+Новое значение переменной, после изменения в файле `group_vars/all/examp.yml`:  
+
 ![8-1--2.png](https://github.com/Roman-K-E/ansible-homeworks/blob/main/8.1/8-1--2.png)
 
-3. Воспользуйтесь подготовленным (используется `docker`) или создайте собственное окружение для проведения дальнейших испытаний.
-4. Проведите запуск playbook на окружении из `prod.yml`. Зафиксируйте полученные значения `some_fact` для каждого из `managed host`.
+3. Воспользуйтесь подготовленным (используется `docker`) или создайте собственное окружение для проведения дальнейших испытаний.  
+Запущены Docker-контейнеры c Ubuntu и CentOS.  
+```
+root@ub1:/home/r/homeworks/8-1# docker-compose up -d
+[+] Running 2/2
+ ⠿ Container ubuntu   Started                                                                                      1.3s
+ ⠿ Container centos7  Started
+```
+4. Проведите запуск playbook на окружении из `prod.yml`. Зафиксируйте полученные значения `some_fact` для каждого из `managed host`.  
+![8-1--4.png](https://github.com/Roman-K-E/ansible-homeworks/blob/main/8.1/8-1--4.png)
+
 5. Добавьте факты в `group_vars` каждой из групп хостов так, чтобы для `some_fact` получились значения: для `deb` — `deb default fact`, для `el` — `el default fact`.
 6.  Повторите запуск playbook на окружении `prod.yml`. Убедитесь, что выдаются корректные значения для всех хостов.
 7. При помощи `ansible-vault` зашифруйте факты в `group_vars/deb` и `group_vars/el` с паролем `netology`.
