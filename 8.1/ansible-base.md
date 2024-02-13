@@ -60,9 +60,37 @@ root@ub1:/home/r/homeworks/8-1# ansible-playbook -i inventory/prod.yml site.yml
 ![8-1--8.png](https://github.com/Roman-K-E/ansible-homeworks/blob/main/8.1/8-1--8.png)
 
 9. Посмотрите при помощи `ansible-doc` список плагинов для подключения. Выберите подходящий для работы на `control node`.
-
+![8-1--9.png](https://github.com/Roman-K-E/ansible-homeworks/blob/main/8.1/8-1--9.png)  
+Полагаю, нужный плагин -- "local".  
 
 10. В `prod.yml` добавьте новую группу хостов с именем  `local`, в ней разместите localhost с необходимым типом подключения.
+Реализация в файле `prod.yml`:
+```
+root@ub1:/home/r/homeworks/8-1/inventory# cat prod.yml
+---
+  el:
+    hosts:
+      centos7:
+        ansible_connection: docker
+  deb:
+    hosts:
+      ubuntu:
+        ansible_connection: docker
+root@ub1:/home/r/homeworks/8-1/inventory# cat test.yml
+---
+  inside:
+    hosts:
+      localhost:
+        ansible_connection: local
+root@ub1:/home/r/homeworks/8-1/inventory#
+```
 11. Запустите playbook на окружении `prod.yml`. При запуске `ansible` должен запросить у вас пароль. Убедитесь, что факты `some_fact` для каждого из хостов определены из верных `group_vars`.
-12. Заполните `README.md` ответами на вопросы. Сделайте `git push` в ветку `master`. В ответе отправьте ссылку на ваш открытый репозиторий с изменённым `playbook` и заполненным `README.md`.
+![8-1--11.png](https://github.com/Roman-K-E/ansible-homeworks/blob/main/8.1/8-1--11.png)  
+
+12. Заполните `README.md` ответами на вопросы. Сделайте `git push` в ветку `master`. В ответе отправьте ссылку на ваш открытый репозиторий с изменённым `playbook` и заполненным `README.md`.  
+
+.md заполнен, и в данный момент находится под Вашим просмотром. :)  
+
 13. Предоставьте скриншоты результатов запуска команд.
+    
+Предоставлены выше ссылками в ответах на соотв. пункты.
