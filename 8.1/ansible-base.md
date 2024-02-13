@@ -47,10 +47,14 @@ root@ub1:/home/r/homeworks/8-1# cat group_vars/el/examp.yml
   some_fact: "el default fact"
 root@ub1:/home/r/homeworks/8-1# ansible-playbook -i inventory/prod.yml site.yml
 ```
+
+6.  Повторите запуск playbook на окружении `prod.yml`. Убедитесь, что выдаются корректные значения для всех хостов.  
 ![8-1--5.png](https://github.com/Roman-K-E/ansible-homeworks/blob/main/8.1/8-1--5.png)
 
-6.  Повторите запуск playbook на окружении `prod.yml`. Убедитесь, что выдаются корректные значения для всех хостов.
 7. При помощи `ansible-vault` зашифруйте факты в `group_vars/deb` и `group_vars/el` с паролем `netology`.
+Шифрование и отображение получившегося:  
+![8-1--6.png](https://github.com/Roman-K-E/ansible-homeworks/blob/main/8.1/8-1--6.png)
+
 8. Запустите playbook на окружении `prod.yml`. При запуске `ansible` должен запросить у вас пароль. Убедитесь в работоспособности.
 9. Посмотрите при помощи `ansible-doc` список плагинов для подключения. Выберите подходящий для работы на `control node`.
 10. В `prod.yml` добавьте новую группу хостов с именем  `local`, в ней разместите localhost с необходимым типом подключения.
