@@ -84,7 +84,8 @@ root@ub1:/home/r/homeworks/8-1/inventory# cat test.yml
         ansible_connection: local
 root@ub1:/home/r/homeworks/8-1/inventory#
 ```
-11. Запустите playbook на окружении `prod.yml`. При запуске `ansible` должен запросить у вас пароль. Убедитесь, что факты `some_fact` для каждого из хостов определены из верных `group_vars`.
+11. Запустите playbook на окружении `prod.yml`. При запуске `ansible` должен запросить у вас пароль. Убедитесь, что факты `some_fact` для каждого из хостов определены из верных `group_vars`.  
+
 ![8-1--11.png](https://github.com/Roman-K-E/ansible-homeworks/blob/main/8.1/8-1--11.png)  
 
 12. Заполните `README.md` ответами на вопросы. Сделайте `git push` в ветку `master`. В ответе отправьте ссылку на ваш открытый репозиторий с изменённым `playbook` и заполненным `README.md`.  
